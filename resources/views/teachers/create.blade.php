@@ -23,11 +23,11 @@
 
       <div> 
 
-        <label for="nis" 
+        <label for="nip" 
 
           class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">NIP</label> 
 
-        <input type="text" id="nis" name="nip" placeholder="Contoh: 848474455001" 
+        <input type="text" id="nip" name="nip" placeholder="Contoh: 848474455001" 
 
           class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none"> 
 
@@ -75,11 +75,11 @@
 
       <div> 
 
-        <label for="major" 
+        <label for="subject" 
 
           class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Mata Pelajaran</label> 
 
-        <select id="major" name="major" 
+        <select id="subject" name="subject" 
 
           class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none"> 
 
@@ -93,7 +93,45 @@
 
         </select> 
 
+    </div> 
+
+    <div> 
+
+        <label for="phone_number" 
+
+          class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">No. Telepon</label> 
+
+        <input type="text" id="phone_number" name="phone_number" placeholder="Contoh: 08123456789" 
+
+          class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none"> 
+
+        </input> 
+
+      </div>
+
+      <div> 
+
+        <label for="status" 
+
+          class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Status</label> 
+
+        <select id="status" name="status" 
+
+          class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none"> 
+
+          <option value="">Pilih status</option> 
+
+          <option value="active">Aktif</option> 
+
+          <option value="inactive">Tidak Aktif</option> 
+
+        </select> 
+
       </div> 
+
+
+      
+
 
 
       <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6"> 
