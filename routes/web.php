@@ -12,6 +12,7 @@ use App\Http\Controllers\SchoolClass\DestroyController;
 use App\Http\Controllers\MajorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Middleware\CheckByRole;
  
  
 Route::get('/', function () {
@@ -26,7 +27,7 @@ Route::post('/register', [AuthController::class, 'registerPost'])->name('registe
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
  
 //Manajemen Data Siswa (Action Controller)
-Route::name('students.')->prefix('students')->group(function(){
+Route::name('students.')->middleware(['role:student,teacher','auth'])->prefix('students')->group(function(){
  
     //Halaman Daftar Siswa
     Route::get('/', [StudentController::class, 'index'])->name('index');
@@ -51,7 +52,7 @@ Route::name('students.')->prefix('students')->group(function(){
 });
  
 //Manajemen Data Guru (Action Controller)
-Route::name('teachers.')->prefix('teachers')->group(function(){
+Route::name('teachers.')->middleware(['role:teacher','auth'])->prefix('teachers')->group(function(){
     Route::get('/', [TeacherController::class, 'index'])->name('index');
        
     Route::get('/create', [TeacherController::class, 'create'])->name('create');
@@ -69,7 +70,7 @@ Route::name('teachers.')->prefix('teachers')->group(function(){
 });
  
 //Manajemen School Class (Invokable)
-Route::name('classes.')->prefix('classes')->group(function(){
+Route::name('classes.')->middleware(['role:teacher','auth'])->prefix('classes')->group(function(){
  
    
     Route::get('/', IndexController::class)->name('index');
@@ -88,5 +89,5 @@ Route::name('classes.')->prefix('classes')->group(function(){
 });
  
 //manajemen major controller (resource)
-Route::resource('majors', MajorController::class);
+Route::resource('majors', MajorController::class)->middleware(['role:teacher','auth']);
  
